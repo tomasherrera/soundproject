@@ -1,0 +1,14 @@
+<script>
+    $(function() {
+        $( "#datepicker" ).datepicker({
+            numberOfMonths: 3,
+            showButtonPanel: true
+        });
+    });
+    </script>
+<h1>New Event</h1>
+<div class="row" id="prueba">
+<%= render 'form' %>
+<% render 'artist_search' %>
+</div>
+<%= link_to 'Back', events_path %>

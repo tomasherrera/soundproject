@@ -1,0 +1,14 @@
+
+<h1>Concerts</h1>
+<% @events = Event.all(:order => "created_at DESC", :conditions => ["created_at <= ?", Time.now]) %>
+	<% @events.each do |event| %>
+		<%user=User.find(event.user_id)%>
+		<blockquote>
+			<h2><%= event.artist_name %> Concert</h2>
+			<p>It will be on: <%= event.date %></p>
+			<p>It will be at and last: <%= event.time_and_duration %></p>
+			<p>The ticket will cost you: $<%= event.price %> bucks</p>
+			<small>Submitted by: <%=user.full_name%></small>
+			<%= link_to "Check it out!",event, :class => "btn btn-warning"%>
+		</blockquote>
+	<%end%>
