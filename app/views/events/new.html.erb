@@ -7,8 +7,14 @@
     });
     </script>
 <h1>New Event</h1>
-<div class="row" id="prueba">
-<%= render 'form' %>
-<% render 'artist_search' %>
+<div class="row">
+	<div class="span4">
+	<%= render 'form' %>
+	</div>
+	<div class="span6" id="concierto">         
+            <% image_tag("concert.jpg") %>
+  			<img src="/assets/concert.jpg" alt="Icon" />           
+    </div> 
 </div>
+
 <%= link_to 'Back', events_path %>

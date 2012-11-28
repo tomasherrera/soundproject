@@ -12,15 +12,8 @@ class EventsController < ApplicationController
     	end
   	end
 		def create
-		@event = Event.new(params[:event])
-		client = Soundcloud.new(:client_id => '5e75f69e6e9591de61fc8a7a5dd6de11')
-		artists = client.get('/users', :q => @event.artist_name,  :streamable => true)
-		tracks = client.get('/tracks', :q => artists[1].username, :streamable => true)
-		if tracks 
-			@event.track_url=tracks[0].permalink_url
-		else
-			@event.track_url="no provided"
-		end
+		@event = Event.new(params[:event])		
+		
 		    respond_to do |format|
 		      if @event.save
 		        format.html { redirect_to @event, notice: 'Event was successfully created. I cant wait!' }
