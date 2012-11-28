@@ -11,21 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127151008) do
+ActiveRecord::Schema.define(:version => 20121128194748) do
 
   create_table "events", :force => true do |t|
-    t.string   "date",                                         :null => false
-    t.string   "time_and_duration",                            :null => false
-    t.string   "artist_name",                                  :null => false
-    t.integer  "price",             :default => 0,             :null => false
-    t.text     "description",                                  :null => false
-    t.string   "track_url",         :default => "no provided", :null => false
+    t.string   "date",                                                      :null => false
+    t.string   "time_and_duration",                                         :null => false
+    t.string   "artist_name",                                               :null => false
+    t.integer  "price",                          :default => 0,             :null => false
+    t.text     "description",                                               :null => false
+    t.string   "track_url",                      :default => "no provided", :null => false
     t.integer  "user_id"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.string   "picture_thumbnail_file_name"
+    t.string   "picture_thumbnail_content_type"
+    t.integer  "picture_thumbnail_file_size"
+    t.datetime "picture_thumbnail_updated_at"
   end
 
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
+  add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "users", :force => true do |t|
     t.string   "full_name",                              :null => false

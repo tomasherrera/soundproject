@@ -1,0 +1,22 @@
+<h1>Concerts</h1>
+<% for user in current_user.friends %>
+  <% user.events.each do |event| %>
+  		<div class="row">
+		<%user=User.find(event.user_id)%>
+		<blockquote>
+			<% if event.picture.url(:normal)!="/pictures/normal/missing.png"%>
+			<div id="pic_small" class="img-polaroid pull-right"><%= image_tag event.picture.url(:small) %></div><%end%>
+			<h2><%= event.artist_name.capitalize%> Concert</h2>
+			<p>It will be on: <%= event.date %></p>
+			<p>It will be at and last: <%= event.time_and_duration %></p>
+			<p>The ticket will cost you: $<%= event.price %> bucks</p>
+			<small>Submitted by: <%=user.full_name%>
+			</small>
+			<%= link_to "Check it out!",event, :class => "btn btn-warning"%>
+
+		</blockquote>
+	</div>
+	<%end%>
+  <% end %>
+
+	

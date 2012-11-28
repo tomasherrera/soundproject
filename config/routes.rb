@@ -1,10 +1,13 @@
 Soundproject::Application.routes.draw do   
     
-  devise_for :users do
+  devise_for :users do     
+    
     resources :events
   end
+  resources :friendships
 
   match "home" => "welcome#index"
+  match "sources" => "events#sources"
   
   root :to => "events#index"
 

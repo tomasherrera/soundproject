@@ -11,7 +11,9 @@ gem 'simple_form'
 gem 'soundcloud'
 gem 'omniauth-soundcloud'
 gem 'hashie'
-
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem "kaminari"
+gem "mail", "2.4.4"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

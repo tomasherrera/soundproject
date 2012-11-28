@@ -21,3 +21,22 @@ body {
 	margin-top: 10px;
 	margin-left: 30px;
 }
+#file {
+   display: none;
+}
+   
+.dummyfile input[type="text"] {
+   width: 145px;
+   display: inline;
+}
+#show_pic{
+	margin-right: 10px;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+#info{
+	padding-left: 20px;
+}
+#pic_small{
+	margin-top: 10px;
+}

@@ -1,0 +1,13 @@
+<div id="follow%>">
+<% if current_user.has_follow?(user)%>
+	<%= button_to "Unfollow", friendship_path(current_user.friendships.where(:friend_id => user.id).first), :data => { :confirm => "Do you really want to unfollow this guy?" }, :method => :delete, class: "btn btn-warning btn-small" %>
+<%else%>
+	<%= button_to "Follow", friendships_path(:friend_id => user), :method => :post, class: "btn btn-success btn-small"  %>
+<%end%>
+<% i=0
+	for user in user.inverse_friends %>
+				
+	<% i=i+1 %>	
+	<% end %><%= i %> followers
+</small>
+</div>
