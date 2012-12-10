@@ -14,6 +14,12 @@ gem 'hashie'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "kaminari"
 gem "mail", "2.4.4"
+
+group :development, :test do
+	gem 'rspec-rails'
+	gem 'shoulda'
+	gem 'factory_girl_rails'
+end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

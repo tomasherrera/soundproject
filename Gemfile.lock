@@ -41,6 +41,8 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    bourne (1.1.2)
+      mocha (= 0.10.5)
     builder (3.0.4)
     cocaine (0.4.2)
     coffee-rails (3.2.2)
@@ -55,9 +57,15 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    diff-lcs (1.1.3)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.1.0)
+      factory_girl (~> 4.1.0)
+      railties (>= 3.0.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
     hashie (1.2.0)
@@ -84,7 +92,10 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.19)
+    mocha (0.10.5)
+      metaclass (~> 0.0.1)
     multi_json (1.3.7)
     multi_xml (0.5.1)
     multipart-post (1.1.5)
@@ -130,11 +141,29 @@ GEM
     rake (10.0.2)
     rdoc (3.12)
       json (~> 1.4)
+    rspec-core (2.12.0)
+    rspec-expectations (2.12.0)
+      diff-lcs (~> 1.1.3)
+    rspec-mocks (2.12.0)
+    rspec-rails (2.12.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 2.12.0)
+      rspec-expectations (~> 2.12.0)
+      rspec-mocks (~> 2.12.0)
     sass (3.2.3)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    shoulda (3.3.2)
+      shoulda-context (~> 1.0.1)
+      shoulda-matchers (~> 1.4.1)
+    shoulda-context (1.0.1)
+    shoulda-matchers (1.4.2)
+      activesupport (>= 3.0.0)
+      bourne (~> 1.1.2)
     simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -165,6 +194,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
+  factory_girl_rails
   hashie
   jquery-rails
   kaminari
@@ -173,7 +203,9 @@ DEPENDENCIES
   paperclip!
   pg
   rails (= 3.2.9)
+  rspec-rails
   sass-rails (~> 3.2.3)
+  shoulda
   simple_form
   soundcloud
   uglifier (>= 1.0.3)
